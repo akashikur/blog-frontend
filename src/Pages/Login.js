@@ -15,7 +15,7 @@ function Login() {
       password,
     };
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}user/login`, userObj)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, userObj)
       .then((res) => {
         if (res.data.status === 200) {
           localStorage.setItem("token", res.data.data);
