@@ -9,7 +9,7 @@ const Users = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      window.location.href = "/register";
+      window.location.href = "/";
     }
   });
   const token = localStorage.getItem("token");

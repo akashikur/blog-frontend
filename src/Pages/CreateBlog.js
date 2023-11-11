@@ -5,7 +5,7 @@ import axios from "axios";
 function CreateBlog() {
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      window.location.href = "/register";
+      window.location.href = "/";
     }
   });
   const [title, setTitle] = useState("");

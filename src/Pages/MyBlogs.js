@@ -8,7 +8,7 @@ const MyBlogs = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      window.location.href = "/register";
+      window.location.href = "/";
     }
   });
   useEffect(() => {
