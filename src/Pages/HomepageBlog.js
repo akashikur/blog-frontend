@@ -1,8 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BlogCard from "../Components/Blog/BlogCard";
+import Loader from "../Components/common/Loader";
 
 const HomepageBlog = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      window.location.href = "/register";
+    }
+  });
   const [homepageBlog, setHomepageBlog] = useState([]);
   useEffect(() => {
     axios
@@ -15,6 +23,7 @@ const HomepageBlog = () => {
         // console.log(res);
         if (res.data.status === 200) {
           setHomepageBlog(res.data.data);
+          setIsLoading(false);
         }
       })
       .catch((error) => {
@@ -23,21 +32,27 @@ const HomepageBlog = () => {
   }, []);
 
   return (
-    <div>
-      <h1>My Blog</h1>
-      {homepageBlog.length > 0 ? (
-        <div>
-          {homepageBlog.map(
-            (item) =>
-              !item.isDeleted && <BlogCard item={item} homepage={true} />
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="blog-body">
+          <h3>Blogs</h3>
+          {homepageBlog.length > 0 ? (
+            <div>
+              {homepageBlog.map(
+                (item) =>
+                  !item.isDeleted && <BlogCard item={item} homepage={true} />
+              )}
+            </div>
+          ) : (
+            <div>
+              <h1>please Follow any Users</h1>
+            </div>
           )}
         </div>
-      ) : (
-        <div>
-          <h1>please Follow any Users</h1>
-        </div>
       )}
-    </div>
+    </>
   );
 };
 

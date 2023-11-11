@@ -29,7 +29,7 @@ function Login() {
 
   return (
     <div style={{ margin: "50px" }}>
-      <h1 style={{ marginBottom: "20px" }}>Register</h1>
+      <h1 style={{ marginBottom: "20px" }}>Login</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>username</Form.Label>

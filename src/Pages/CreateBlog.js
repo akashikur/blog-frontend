@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 
 function CreateBlog() {
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      window.location.href = "/register";
+    }
+  });
   const [title, setTitle] = useState("");
 
   const [textBody, setTextBody] = useState("");

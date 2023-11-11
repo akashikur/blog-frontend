@@ -7,7 +7,7 @@ import MyBlogs from "./Pages/MyBlogs";
 import HomepageBlog from "./Pages/HomepageBlog";
 import Header from "./Components/common/Header";
 import Users from "./Pages/Users";
-
+import "./App.css";
 function App() {
   return (
     <>

@@ -53,10 +53,12 @@ function BlogCard({ item, homepage }) {
 
   return (
     <div style={{ margin: "30px" }}>
-      <Card style={{ width: "18rem" }}>
+      <Card>
+        <Card.Header>
+          {item.title}
+          <span style={{ float: "right" }}>{item.creationDateTime}</span>
+        </Card.Header>
         <Card.Body>
-          <p>{item.creationDateTime}</p>
-          <Card.Title>{item.title}</Card.Title>
           <Card.Text>{item.textBody}</Card.Text>
           {!homepage && (
             <>
