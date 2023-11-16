@@ -25,7 +25,7 @@ function Header() {
               </>
             ) : (
               <>
-                <Nav.Link href="/register">register</Nav.Link>
+                <Nav.Link href="/">register</Nav.Link>
                 <Nav.Link href="/login">login</Nav.Link>
               </>
             )}
